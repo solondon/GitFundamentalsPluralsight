@@ -1,0 +1,1052 @@
+
+Lopez@W2F MINGW64 /f/dev/web/gittesting (master)
+$ cd ..
+
+Lopez@W2F MINGW64 /f/dev/web
+$ cd GitFundamentalsPluralsight
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight
+$ clear
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight
+$ git init
+Initialized empty Git repository in F:/DEV/WEB/GitFundamentalsPluralsight/.git/
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ ls -la
+total 8
+drwxr-xr-x 1 Lopez 197121 0 Aug  8 17:01 ./
+drwxr-xr-x 1 Lopez 197121 0 Aug  8 17:00 ../
+drwxr-xr-x 1 Lopez 197121 0 Aug  8 17:01 .git/
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ echo "Hello Git" > README.TXT
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        README.TXT
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git add readme.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        README.TXT
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git add README.TXT
+warning: LF will be replaced by CRLF in README.TXT.
+The file will have its original line endings in your working directory.
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   README.TXT
+
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git commit
+[master (root-commit) 45e5c7b] Added readme.txt
+warning: LF will be replaced by CRLF in README.TXT.
+The file will have its original line endings in your working directory.
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.TXT
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git log
+commit 45e5c7b857a0d8e2f8f29bc7fe89b11af2741416
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:04:57 2016 +0100
+
+    Added readme.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ vss README.TXT
+bash: vss: command not found
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.TXT
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git add -u
+warning: LF will be replaced by CRLF in README.TXT.
+The file will have its original line endings in your working directory.
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+warning: LF will be replaced by CRLF in README.TXT.
+The file will have its original line endings in your working directory.
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   README.TXT
+
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git commit -m "updated readme.txt"
+[master warning: LF will be replaced by CRLF in README.TXT.
+The file will have its original line endings in your working directory.
+715cb07] updated readme.txt
+warning: LF will be replaced by CRLF in README.TXT.
+The file will have its original line endings in your working directory.
+ 1 file changed, 1 insertion(+)
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git log
+commit 715cb0713590cf546b8c303934befa916bb548c0
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:13:39 2016 +0100
+
+    updated readme.txt
+
+commit 45e5c7b857a0d8e2f8f29bc7fe89b11af2741416
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:04:57 2016 +0100
+
+    Added readme.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git diff 45e5c7.. 715cb07
+diff --git a/README.TXT b/README.TXT
+index 9f4d96d..135be91 100644
+--- a/README.TXT
++++ b/README.TXT
+@@ -1 +1,2 @@
+ Hello Git
++Added a second line here
+warning: LF will be replaced by CRLF in README.TXT.
+The file will have its original line endings in your working directory.
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git diff HEAD~1..HEAD
+diff --git a/README.TXT b/README.TXT
+index 9f4d96d..135be91 100644
+--- a/README.TXT
++++ b/README.TXT
+@@ -1 +1,2 @@
+ Hello Git
++Added a second line here
+warning: LF will be replaced by CRLF in README.TXT.
+The file will have its original line endings in your working directory.
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git diff HEAD~1..
+diff --git a/README.TXT b/README.TXT
+index 9f4d96d..135be91 100644
+--- a/README.TXT
++++ b/README.TXT
+@@ -1 +1,2 @@
+ Hello Git
++Added a second line here
+warning: LF will be replaced by CRLF in README.TXT.
+The file will have its original line endings in your working directory.
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ touch file1.txt file2.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        file1.txt
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git add -u
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        file1.txt
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git add -A
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   file1.txt
+        new file:   file2.txt
+
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git commit -m "added new txt files"
+[master a2b69b7] added new txt files
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git diff HEAD~1..
+diff --git a/file1.txt b/file1.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..e69de29
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ cat file1.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ cat README.TXT
+Hello Git
+Added a second line here
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ code file1.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git add -u
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   file1.txt
+
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git commit -m "modified file1.txt"
+[master cf6cef2] modified file1.txt
+ 1 file changed, 1 insertion(+)
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ rm file2.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git add -u
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ code file3.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        file3.txt
+
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git add .
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+        new file:   file3.txt
+
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ mv file1.txt new_file_name.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+        new file:   file3.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        deleted:    file1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        new_file_name.txt
+
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git add -A
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+        new file:   file3.txt
+        renamed:    file1.txt -> new_file_name.txt
+
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git commit -m "reorganised files"
+[master eb6a2fa] reorganised files
+ 3 files changed, 1 insertion(+)
+ delete mode 100644 file2.txt
+ create mode 100644 file3.txt
+ rename file1.txt => new_file_name.txt (100%)
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git log
+commit eb6a2fa855c6126c36d6987bff1acc80be8ebd94
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:35:33 2016 +0100
+
+    reorganised files
+
+commit cf6cef280250dd02a48e31ff8a9b37caad204d11
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:31:43 2016 +0100
+
+    modified file1.txt
+
+commit a2b69b7ef21e5afa44684c42426faf4cb218d5d9
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:19:18 2016 +0100
+
+    added new txt files
+
+commit 715cb0713590cf546b8c303934befa916bb548c0
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:13:39 2016 +0100
+
+    updated readme.txt
+
+commit 45e5c7b857a0d8e2f8f29bc7fe89b11af2741416
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:04:57 2016 +0100
+
+    Added readme.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ code file3.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   file3.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git checkout file3.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ cat readme.txt
+Hello Git
+Added a second line here
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ code readme.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.TXT
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git reset --hard
+HEAD is now at eb6a2fa reorganised files
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ ls
+file3.txt  new_file_name.txt  README.TXT
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git log
+commit eb6a2fa855c6126c36d6987bff1acc80be8ebd94
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:35:33 2016 +0100
+
+    reorganised files
+
+commit cf6cef280250dd02a48e31ff8a9b37caad204d11
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:31:43 2016 +0100
+
+    modified file1.txt
+
+commit a2b69b7ef21e5afa44684c42426faf4cb218d5d9
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:19:18 2016 +0100
+
+    added new txt files
+
+commit 715cb0713590cf546b8c303934befa916bb548c0
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:13:39 2016 +0100
+
+    updated readme.txt
+
+commit 45e5c7b857a0d8e2f8f29bc7fe89b11af2741416
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:04:57 2016 +0100
+
+    Added readme.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git reset --soft HEAD~1
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        deleted:    file2.txt
+        new file:   file3.txt
+        renamed:    file1.txt -> new_file_name.txt
+
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ LS
+file3.txt  new_file_name.txt  README.TXT
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git log
+commit cf6cef280250dd02a48e31ff8a9b37caad204d11
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:31:43 2016 +0100
+
+    modified file1.txt
+
+commit a2b69b7ef21e5afa44684c42426faf4cb218d5d9
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:19:18 2016 +0100
+
+    added new txt files
+
+commit 715cb0713590cf546b8c303934befa916bb548c0
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:13:39 2016 +0100
+
+    updated readme.txt
+
+commit 45e5c7b857a0d8e2f8f29bc7fe89b11af2741416
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:04:57 2016 +0100
+
+    Added readme.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git commit -m "reorganised files for new feature"
+[master 08588e6] reorganised files for new feature
+ 3 files changed, 1 insertion(+)
+ delete mode 100644 file2.txt
+ create mode 100644 file3.txt
+ rename file1.txt => new_file_name.txt (100%)
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ touch temp1.txt temp2.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ ls
+file3.txt  new_file_name.txt  README.TXT  temp1.txt  temp2.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git clean -n
+Would remove temp1.txt
+Would remove temp2.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git clean -f
+Removing temp1.txt
+Removing temp2.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ mkdir logs
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ touch logs/log.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        logs/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ code .gitignore
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git add .
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git commit -m "Added gitignore"
+[master e0a744f] Added gitignore
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ git log
+commit e0a744f35add87ba7fdb8ea28a9cfe3961b4b7aa
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Tue Aug 9 09:57:32 2016 +0100
+
+    Added gitignore
+
+commit 08588e63b853472bde20c19d8415dd758eebf5e6
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Tue Aug 9 09:31:10 2016 +0100
+
+    reorganised files for new feature
+
+commit cf6cef280250dd02a48e31ff8a9b37caad204d11
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:31:43 2016 +0100
+
+    modified file1.txt
+
+commit a2b69b7ef21e5afa44684c42426faf4cb218d5d9
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:19:18 2016 +0100
+
+    added new txt files
+
+commit 715cb0713590cf546b8c303934befa916bb548c0
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:13:39 2016 +0100
+
+    updated readme.txt
+
+commit 45e5c7b857a0d8e2f8f29bc7fe89b11af2741416
+Author: solondon <jlopez@jlopez.co.uk>
+Date:   Mon Aug 8 17:04:57 2016 +0100
+
+    Added readme.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ touch commandlog.txt
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ cd f/dev/vs
+bash: cd: f/dev/vs: No such file or directory
+
+Lopez@W2F MINGW64 /f/dev/web/GitFundamentalsPluralsight (master)
+$ cd /f/dev/vs
+
+Lopez@W2F MINGW64 /f/dev/vs
+$ ls
+AcmeApp/                 ExFilesPluralsightADO_NET/  Marquee/                             VisualStudio2015SampleProjects/
+AcmeCustomerManagement/  GradeBook/                  Misc/                                VS2015-AcmeCustomerManagement/
+AlarmApp_SourceCode/     Grades/                     OOFundamentalsCSharpDK/              writing-clean-code-humans/
+AutoDiagrammer/          John.SocialClub/            OOP-ACM/                             yahooScraper/
+ConsoleHelloWorld/       LayerGen/                   PurchaseTracker2008CSharp/
+EUC.GymAnimal/           mab_stopwatch_spike-1.0/    VisualStudio2013andNETCookbookCode/
+
+Lopez@W2F MINGW64 /f/dev/vs
+$ git clone https://github.com/DeborahK/CSharpBP-Collections.git
+Cloning into 'CSharpBP-Collections'...
+remote: Counting objects: 116, done.
+[Kmote: Total 116 (delta 0), reuseRd 0ece (divieltng a 0obj), ectpacs: k-r 54eus% (ed 63/11616)
+Receiving objects: 100% (116/116), 33.27 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (46/46), done.
+Checking connectivity... done.
+
+Lopez@W2F MINGW64 /f/dev/vs
+$ ls
+AcmeApp/                 EUC.GymAnimal/              mab_stopwatch_spike-1.0/    VisualStudio2013andNETCookbookCode/
+AcmeCustomerManagement/  ExFilesPluralsightADO_NET/  Marquee/                    VisualStudio2015SampleProjects/
+AlarmApp_SourceCode/     GradeBook/                  Misc/                       VS2015-AcmeCustomerManagement/
+AutoDiagrammer/          Grades/                     OOFundamentalsCSharpDK/     writing-clean-code-humans/
+ConsoleHelloWorld/       John.SocialClub/            OOP-ACM/                    yahooScraper/
+CSharpBP-Collections/    LayerGen/                   PurchaseTracker2008CSharp/
+
+Lopez@W2F MINGW64 /f/dev/vs
+$ cd CsharpBP-Collections
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git log
+commit 1914c218c7bb3528d80a2209924444d08d8cea63
+Author: Deborah Kurata <DeborahK@users.noreply.github.com>
+Date:   Tue Feb 23 12:13:32 2016 -0800
+
+    Update README.md
+
+commit f0339e9a4403ad1abac12e791a68b6b26b5e3f4d
+Author: Deborah Kurata <DeborahK@users.noreply.github.com>
+Date:   Tue Feb 23 12:13:01 2016 -0800
+
+    Update README.md
+
+commit 085f12450931b9df9f11ee384aa11f2bad939817
+Author: DeborahK <deborahk@insteptech.com>
+Date:   Tue Feb 23 12:10:53 2016 -0800
+
+    Added a Visual Studio 2013 (C# 5) version of the starter code.
+
+commit d14424725cd52bfdad2fb3669eb1c76486667c33
+Merge: 82eb7e7 c25e5f6
+Author: DeborahK <deborahk@insteptech.com>
+Date:   Tue Feb 23 10:53:07 2016 -0800
+
+    Merge branch 'master' of https://github.com/DeborahK/CSharpBP-Collections.git
+
+commit 82eb7e75ba222b3e76f560645ecf4ca6381c7f8f
+Author: DeborahK <deborahk@insteptech.com>
+Date:   Tue Feb 23 10:53:05 2016 -0800
+
+    Changed the PlaceOrder unit test to display a localized date.
+
+commit c25e5f6b9ee89acde31783e06511ce3c584d9b28
+Author: Deborah Kurata <DeborahK@users.noreply.github.com>
+Date:   Mon Feb 15 08:18:43 2016 -0800
+
+    Update README.md
+
+commit bb79f5c183e696aef2a89ee0d5b32ea4b30ed069
+Author: DeborahK <deborahk@insteptech.com>
+Date:   Wed Dec 16 08:16:16 2015 -0800
+
+    Updated Vendor ToString to include the Vendor Id
+
+commit 5d2bc583b5b11247e006d769b0c77b74dd978c5f
+Author: DeborahK <deborahk@insteptech.com>
+Date:   Mon Nov 30 11:25:14 2015 -0800
+
+    Added more comments.
+    Removed code that was not the "starter* code.
+
+commit 4d001e2599c5559616aa7c180b1832fd295bff8f
+Author: DeborahK <deborahk@insteptech.com>
+Date:   Mon Nov 23 13:31:19 2015 -0800
+
+    First check in of code.
+
+commit 52e5fabdf584cc27d4e8b501e5613888de5d04b3
+Author: Deborah Kurata <DeborahK@users.noreply.github.com>
+Date:   Mon Nov 23 13:10:04 2015 -0800
+
+    Initial commit
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git log --oneline
+1914c21 Update README.md
+f0339e9 Update README.md
+085f124 Added a Visual Studio 2013 (C# 5) version of the starter code.
+d144247 Merge branch 'master' of https://github.com/DeborahK/CSharpBP-Collections.git
+82eb7e7 Changed the PlaceOrder unit test to display a localized date.
+c25e5f6 Update README.md
+bb79f5c Updated Vendor ToString to include the Vendor Id
+5d2bc58 Added more comments. Removed code that was not the "starter* code.
+4d001e2 First check in of code.
+52e5fab Initial commit
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git log --oneline | wc -1
+wc: unknown option -- 1
+Try 'wc --help' for more information.
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git log --oneline | wc -l
+10
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git log --oneline --graph
+* 1914c21 Update README.md
+* f0339e9 Update README.md
+* 085f124 Added a Visual Studio 2013 (C# 5) version of the starter code.
+*   d144247 Merge branch 'master' of https://github.com/DeborahK/CSharpBP-Collections.git
+|\
+| * c25e5f6 Update README.md
+* | 82eb7e7 Changed the PlaceOrder unit test to display a localized date.
+|/
+* bb79f5c Updated Vendor ToString to include the Vendor Id
+* 5d2bc58 Added more comments. Removed code that was not the "starter* code.
+* 4d001e2 First check in of code.
+* 52e5fab Initial commit
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git shortlog
+Deborah Kurata (4):
+      Initial commit
+      Update README.md
+      Update README.md
+      Update README.md
+
+DeborahK (6):
+      First check in of code.
+      Added more comments. Removed code that was not the "starter* code.
+      Updated Vendor ToString to include the Vendor Id
+      Changed the PlaceOrder unit test to display a localized date.
+      Merge branch 'master' of https://github.com/DeborahK/CSharpBP-Collections.git
+      Added a Visual Studio 2013 (C# 5) version of the starter code.
+
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git shortlog -sne
+     6  DeborahK <deborahk@insteptech.com>
+     4  Deborah Kurata <DeborahK@users.noreply.github.com>
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git show HEAD
+commit 1914c218c7bb3528d80a2209924444d08d8cea63
+Author: Deborah Kurata <DeborahK@users.noreply.github.com>
+Date:   Tue Feb 23 12:13:32 2016 -0800
+
+    Update README.md
+
+diff --git a/README.md b/README.md
+index 10f30db..e812f8e 100644
+--- a/README.md
++++ b/README.md
+@@ -2,4 +2,5 @@
+ Materials and starter files for the "C# Best Practices: Collections and Generics" Pluralsight course.
+
+ **NOTE: The `AcmeApp` sample code uses C# 6 and requires Visual Studio 2015.**
++
+ If you are using VS 2013, use the `AcmeApp-For VS2013` version of the sample code.
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git show HEAD~1
+commit f0339e9a4403ad1abac12e791a68b6b26b5e3f4d
+Author: Deborah Kurata <DeborahK@users.noreply.github.com>
+Date:   Tue Feb 23 12:13:01 2016 -0800
+
+    Update README.md
+
+diff --git a/README.md b/README.md
+index f6c8499..10f30db 100644
+--- a/README.md
++++ b/README.md
+@@ -1,5 +1,5 @@
+ # CSharpBP-Collections
+ Materials and starter files for the "C# Best Practices: Collections and Generics" Pluralsight course.
+
+-**NOTE: This sample code uses C# 6 and requires Visual Studio 2015.**
+-If you need to use this sample code with an earlier version of Visual Studio, let me know and I'll look into creating a version of the code that works with VS 2013.
++**NOTE: The `AcmeApp` sample code uses C# 6 and requires Visual Studio 2015.**
++If you are using VS 2013, use the `AcmeApp-For VS2013` version of the sample code.
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git shortlog
+Deborah Kurata (4):
+      Initial commit
+      Update README.md
+      Update README.md
+      Update README.md
+
+DeborahK (6):
+      First check in of code.
+      Added more comments. Removed code that was not the "starter* code.
+      Updated Vendor ToString to include the Vendor Id
+      Changed the PlaceOrder unit test to display a localized date.
+      Merge branch 'master' of https://github.com/DeborahK/CSharpBP-Collections.git
+      Added a Visual Studio 2013 (C# 5) version of the starter code.
+
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git log --oneline
+1914c21 Update README.md
+f0339e9 Update README.md
+085f124 Added a Visual Studio 2013 (C# 5) version of the starter code.
+d144247 Merge branch 'master' of https://github.com/DeborahK/CSharpBP-Collections.git
+82eb7e7 Changed the PlaceOrder unit test to display a localized date.
+c25e5f6 Update README.md
+bb79f5c Updated Vendor ToString to include the Vendor Id
+5d2bc58 Added more comments. Removed code that was not the "starter* code.
+4d001e2 First check in of code.
+52e5fab Initial commit
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git remote
+origin
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git remote -v
+origin  https://github.com/DeborahK/CSharpBP-Collections.git (fetch)
+origin  https://github.com/DeborahK/CSharpBP-Collections.git (push)
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ ls -a
+./  ../  .git/  .gitignore  AcmeApp/  'AcmeApp-For VS2013'/  LICENSE  README.md
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ cat .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        symlinks = false
+        ignorecase = true
+        hideDotFiles = dotGitOnly
+[remote "origin"]
+        url = https://github.com/DeborahK/CSharpBP-Collections.git
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git branch
+* master
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git branch -r
+  origin/HEAD -> origin/master
+  origin/master
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ git tag
+
+Lopez@W2F MINGW64 /f/dev/vs/CsharpBP-Collections (master)
+$ cd ..
+
+Lopez@W2F MINGW64 /f/dev/vs
+$ cd ..
+
+Lopez@W2F MINGW64 /f/dev
+$ cd WEB
+
+Lopez@W2F MINGW64 /f/dev/WEB
+$ cd GitFundamentalsPluralsight
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        commandlog.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git remote -v
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git commit -m "Added commandlog.txt"
+On branch master
+Untracked files:
+        commandlog.txt
+
+nothing added to commit but untracked files present
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git add .
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git commit -m "Added commandlog.txt"
+[master e18a714] Added commandlog.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 commandlog.txt
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git log --oneline
+e18a714 Added commandlog.txt
+e0a744f Added gitignore
+08588e6 reorganised files for new feature
+cf6cef2 modified file1.txt
+a2b69b7 added new txt files
+715cb07 updated readme.txt
+45e5c7b Added readme.txt
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git remote -v
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git remote add origin https://github.com/solondon/GitFundamentalsPluralsight.git
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git remote -v
+origin  https://github.com/solondon/GitFundamentalsPluralsight.git (fetch)
+origin  https://github.com/solondon/GitFundamentalsPluralsight.git (push)
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ code readme.txt
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   README.TXT
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git add -u
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   README.TXT
+
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git commit -m "push changes example"
+[master 9f90de9] push changes example
+ 1 file changed, 1 insertion(+)
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git push --set-upstream origin master
+remote: Repository not found.
+fatal: repository 'https://github.com/solondon/GitFundamentalsPluralsight.git/' not found
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$ git push --set-upstream origin master
+Counting objects: 23, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (23/23), 1.97 KiB | 0 bytes/s, done.
+Total 23 (delta 3), reused 0 (delta 0)
+To https://github.com/solondon/GitFundamentalsPluralsight.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+
+Lopez@W2F MINGW64 /f/dev/WEB/GitFundamentalsPluralsight (master)
+$
